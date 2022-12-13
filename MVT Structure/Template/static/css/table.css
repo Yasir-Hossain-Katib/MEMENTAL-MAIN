@@ -1,0 +1,59 @@
+.appointment-table {
+  display: block;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.dash-l-r {
+  border-left: 1px dashed rgb(219, 219, 219);
+  border-right: 1px dashed #dbdbdb;
+}
+
+.dash-left {
+  border-left: 1px dashed rgb(219, 219, 219);
+}
+
+.dash-right {
+  border-left: 1px dashed rgb(219, 219, 219);
+}
+
+.appointment-table tr {
+  text-align: center;
+  border-bottom: 0.5px dotted rgb(219, 219, 219);
+}
+
+.appointment-table tr th {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid rgb(219, 219, 219);
+}
+
+.appointment-table tr td {
+  border-left: 1px dashed rgb(219, 219, 219);
+  border-right: 1px dashed rgb(219, 219, 219);
+}
+
+#prescribe {
+  height: 50px;
+  width: 200px;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  background-color: rgb(224, 224, 224);
+  padding: 2px;
+}
+
+.button {
+  border-radius: 05px;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 2px;
+  background-color: #a5c422;
+  color: white;
+  transition: all 0.5s;
+}
+
+.button:hover {
+  background-color: rgb(99, 243, 159);
+}

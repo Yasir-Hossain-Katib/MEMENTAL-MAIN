@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+     <title>Emergency Cabins</title>
+     <link rel="icon" href="../../static/images/mental-icon-2.jpg">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     {% include 'importcss.html' %}
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     {% include 'navbar.html' %}
+     <section data-stellar-background-ratio="2.5" style="padding: 20px; background-color: rgb(228, 228, 228);">
+        <div class="container" style="display: block; background-color: white; border-radius:10px; box-shadow: black;">
+            <h3 style="padding: 12px; margin-bottom: 20px; text-align: center;padding-bottom:10px; font-weight:bold">Emergency Cabin(s)</h3>
+            <div class="table table-hover">
+              <table class="table">
+                <tr style="text-align:center; margin-bottom: 6px;">
+                  <td style="font-size: 18px; font-weight: bold;">Hospital Name</td>
+                  <td style="font-size: 18px; font-weight: bold;">Address</td>
+                  <td style="font-size: 18px; font-weight: bold;">City</td>
+                  <td style="font-size: 18px; font-weight: bold;">Contact</td>
+                  <td style="font-size: 18px; font-weight: bold;">Availability</td>
+                  <td style="font-size: 18px; font-weight: bold;">Fees</td>
+                <tr>
+                  {% for cabin in cabins %}
+                <tr style="text-align:center;">
+                  <td>{{cabin.hospital_name}}</td>
+                  <td>{{cabin.address}}</td>
+                  <td>{{cabin.city}}</td>
+                  <td>{{cabin.contact}}</td>
+                  {% if cabin.availability is 1 %}
+                  <td style="background-color: rgb(131, 255, 131); border-radius: 10px;">Available</td>
+                  {% else %}
+                  <td style="color:white;background-color: rgb(255, 95, 95); border-radius: 10px">Not Available</td>
+                  {% endif %}
+                  <td>{{cabin.fees}}</td>
+                <tr>
+                  {% endfor %}
+              </table>
+            </div>
+          </div>
+     </section>       
+     {% include 'footer.html' %}
+     {% include 'importscripts.html' %}
+</body>
+</html>

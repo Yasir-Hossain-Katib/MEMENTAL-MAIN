@@ -1,0 +1,74 @@
+{%load static%}
+<!-- PRE LOADER -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<section class="preloader">
+	<div class="spinner">
+
+		<span class="spinner-rotate"></span>
+
+	</div>
+</section>
+
+
+<!-- HEADER -->
+<header>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-4 col-sm-5">
+				<p>Welcome to Memental Health Care</p>
+			</div>
+
+			{% for message in messages %}
+			<div class="col-md-4 col-sm-5 alert alert-success" role="alert">
+				{{message}}
+			</div>
+			{% endfor %}
+
+			<div class="col-md-8 col-sm-7 text-align-right">
+				<span class="phone-icon"><i class="fa fa-phone"></i> 010-060-0160</span>
+				<span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 6:00 AM - 10:00 PM (Sat-Thu)</span>
+				<span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">admin@g.bracu.ac.bd</a></span>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+<!-- MENU -->
+<section class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+
+			<!-- lOGO TEXT HERE -->
+			<a href="{% url 'index' %}" class="navbar-brand" style="font-family: 'Bangers', cursive; font-size: 30px;"><span
+					style="font-size: 40px;">M</span>emental</a>
+		</div>
+
+		<!-- MENU LINKS -->
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="{% url 'index' %}" class="smoothScroll">Home</a></li>
+				<li><a href="#about" class="smoothScroll">About Us</a></li>
+				<li><a href="{% url 'doctors' %}" class="smoothScroll">Doctors</a></li>
+				<li><a href="{% url 'emergency' %}" class="smoothScroll" style="text-align: center;">Emergency
+						Cabins</a></li>
+				{% if user.is_authenticated %}
+				<li><a href="{% url 'profile' %}"><img src="{% static 'images/user.svg' %}" alt=""
+							style="height: 30px; width: 30px;"></a></li>
+				<li class="login-btn logout"><a href="{% url 'logout' %}">Logout</a></li>
+				{% else %}
+				<li class="login-btn"><a href="{% url 'login' %}">Login</a></li>
+				{% endif %}
+			</ul>
+		</div>
+
+	</div>
+</section>

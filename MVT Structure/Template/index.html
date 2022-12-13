@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+     <title>Memental</title>
+     <link rel="icon" href="../../static/images/mental-icon-2.jpg">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     {% include 'importcss.html' %}
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     {% include 'navbar.html' %}
+
+
+     <!-- HOME -->
+     <section id="home" class="slider" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                         <div class="owl-carousel owl-theme">
+                              <div class="item item-first">
+                                   <div class="caption">
+                                        <div class="col-md-offset-1 col-md-10">
+                                             <h3>Let's make your life happier</h3>
+                                             <h1>Healthy Living</h1>
+                                             <a href="{% url 'doctors' %}" class="section-btn btn btn-default smoothScroll">Meet Our Doctors</a>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="item item-second">
+                                   <div class="caption">
+                                        <div class="col-md-offset-1 col-md-10">
+                                             <h3>Aenean luctus lobortis tellus</h3>
+                                             <h1>New Lifestyle</h1>
+                                             <a href="#about" class="section-btn btn btn-default btn-gray smoothScroll">More About Us</a>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="item item-third">
+                                   <div class="caption">
+                                        <div class="col-md-offset-1 col-md-10">
+                                             <h3>Professional and personal care</h3>
+                                             <h1>Your Health Benefits</h1>
+                                             <a href="#google-map" class="section-btn btn btn-default btn-blue smoothScroll">Meet Us</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- ABOUT -->
+     <section id="about">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                         <div class="about-info">
+                              <h2 class="wow fadeInUp" data-wow-delay="0.6s">Welcome to Memental <br><i class="fa fa-h-square"></i>ealth Care</h2>
+                              <div class="wow fadeInUp" data-wow-delay="0.8s">
+                                   <p>Access to health care varies in a third world country like <b><i>Bangladesh</i></b> influenced by social and economic conditions as well as health policies. Providing health care services means "the timely use of personal health services to achieve the best possible health outcomes".Factors to consider in terms of healthcare access include <b>financial limitations</b> (such as insurance coverage), <b>geographic barriers</b> (such as additional <b>transportation costs</b>, the possibility to take paid time off of work to use such services), and <b>personal limitations</b> (lack of <b>communications</b> with healthcare providers, poor health literacy, low income).</p>
+                              </div>
+                              <figure class="profile wow fadeInUp" data-wow-delay="1s">
+                                   <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                   <figcaption>
+                                        <h3>Shafi Ahmed</h3>
+                                        <p>CEO / Founder, Memental</p>
+                                   </figcaption>
+                              </figure>
+                              <figure class="profile wow fadeInUp" data-wow-delay="1s" style="padding-top: 20px;">
+                                   <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                   <figcaption>
+                                        <h3>Aditya Roy</h3>
+                                        <p>Cofounder, Memental</p>
+                                   </figcaption>
+                              </figure>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+     <!-- TEAM -->
+     <section id="team" data-stellar-background-ratio="1">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                         <div class="about-info">
+                              <h2 class="wow fadeInUp" data-wow-delay="0.1s">Our Doctors</h2>
+                         </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                              <img src="{% static 'images/team-image1.jpg' %}" class="img-responsive" alt="">
+
+                                   <div class="team-info">
+                                        <h3>Nate Baston</h3>
+                                        <p>General Principal</p>
+                                        <div class="team-contact-info">
+                                             <p><i class="fa fa-phone"></i> 010-020-0120</p>
+                                             <p><i class="fa fa-envelope-o"></i> <a href="#">general@company.com</a></p>
+                                        </div>
+                                        <ul class="social-icon">
+                                             <li><a href="#" class="fa fa-linkedin-square"></a></li>
+                                             <li><a href="#" class="fa fa-envelope-o"></a></li>
+                                        </ul>
+                                   </div>
+
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
+                              <img src="{% static 'images/team-image2.jpg' %}"class="img-responsive" alt="">
+
+                                   <div class="team-info">
+                                        <h3>Jason Stewart</h3>
+                                        <p>Pregnancy</p>
+                                        <div class="team-contact-info">
+                                             <p><i class="fa fa-phone"></i> 010-070-0170</p>
+                                             <p><i class="fa fa-envelope-o"></i> <a href="#">pregnancy@company.com</a></p>
+                                        </div>
+                                        <ul class="social-icon">
+                                             <li><a href="#" class="fa fa-facebook-square"></a></li>
+                                             <li><a href="#" class="fa fa-envelope-o"></a></li>
+                                             <li><a href="#" class="fa fa-flickr"></a></li>
+                                        </ul>
+                                   </div>
+
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
+                              <img src="{% static 'images/team-image3.jpg' %}"class="img-responsive" alt="">
+
+                                   <div class="team-info">
+                                        <h3>Miasha Nakahara</h3>
+                                        <p>Cardiology</p>
+                                        <div class="team-contact-info">
+                                             <p><i class="fa fa-phone"></i> 010-040-0140</p>
+                                             <p><i class="fa fa-envelope-o"></i> <a href="#">cardio@company.com</a></p>
+                                        </div>
+                                        <ul class="social-icon">
+                                             <li><a href="#" class="fa fa-twitter"></a></li>
+                                             <li><a href="#" class="fa fa-envelope-o"></a></li>
+                                        </ul>
+                                   </div>
+
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+     <!-- NEWS -->
+     <section id="news" data-stellar-background-ratio="2.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <!-- SECTION TITLE -->
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                              <h2>Latest News</h2>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- NEWS THUMB -->
+                         <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
+                              <a href="https://www.worldometers.info/coronavirus/country/bangladesh/">
+                                   <img src="{% static 'images/covid19.jpg' %}" class="img-responsive" alt="">
+                              </a>
+                              <div class="news-info">
+                                   <span>March 20, 2021</span>
+                                   <h3><a href="https://www.worldometers.info/coronavirus/country/bangladesh/">COVID 19 Cases Rises in Bangladesh</a></h3>
+                                   <p>Bangladesh records 95 more deaths, 4,280 new cases in 24 hours</p>
+                                   <div class="author">
+                                        <img src="{% static 'images/author-image.jpg' %}" class="img-responsive" alt="">
+                                        <div class="author-info">
+                                             <h5>Shafi Ahmed</h5>
+                                             <p>CEO / Founder, Memental</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- NEWS THUMB -->
+                         <div class="news-thumb wow fadeInUp" data-wow-delay="0.6s">
+                              <a href="https://surokkha.gov.bd/">
+                                   <img src="{% static 'images/surokkha.png' %}" class="img-responsive" alt="">
+                              </a>
+                              <div class="news-info">
+                                   <span>February 07, 2021</span>
+                                   <h3><a href="https://surokkha.gov.bd/">Introducing Bangladesh COVID-19 Vaccination</a></h3>
+                                   <p>Bangladesh's nationwide vaccination programme began on February 7, 2021. The government has created a web portal, Surokkha, for easy registration for both doses of the vaccine.</p>
+                                   <div class="author">
+                                        <img src="{% static 'images/author-image.jpg' %}"class="img-responsive" alt="">
+                                        <div class="author-info">
+                                             <h5>Aditya Roy</h5>
+                                             <p>Cofounder, Memental</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- NEWS THUMB -->
+                         <div class="news-thumb wow fadeInUp" data-wow-delay="0.8s">
+                              <a href="{% static 'news-detail.html' %}">
+                                   <img src="{% static 'images/news-image3.jpg' %}" class="img-responsive" alt="">
+                              </a>
+                              <div class="news-info">
+                                   <span>January 27, 2018</span>
+                                   <h3><a href="{% static 'news-detail.html' %}">Review Annual Medical Research</a></h3>
+                                   <p>Vivamus non nulla semper diam cursus maximus. Pellentesque dignissim.</p>
+                                   <div class="author">
+                                        <img src="{% static 'images/author-image.jpg' %}" class="img-responsive" alt="">
+                                        <div class="author-info">
+                                             <h5>Andrio Abero</h5>
+                                             <p>Online Advertising</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+     <section id="google-map">
+          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1M0_9w642bJZIc2NYVgvvnSJosBtc4kaz" width="100%" height="500" frameborder="0" style="border-radius: 8px;padding: 1px;"></iframe>
+     </section>           
+
+
+     {% include 'footer.html' %}
+     {% include 'importscripts.html' %}
+</body>
+</html>

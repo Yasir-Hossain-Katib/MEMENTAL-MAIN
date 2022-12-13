@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>User Profile - Memental</title>
+  <link rel="icon" href="../../static/images/mental-icon-2.jpg">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Tooplate">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="stylesheet" href="{% static 'css/table.css' %}">
+
+  {% include 'importcss.html' %}
+
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+  {% include 'navbar.html' %}
+
+  <!-- ABOUT -->
+  <section style="padding: 70px;">
+    <form action="#" method="POST">
+      {% csrf_token %}
+      <div class="row gutters-sm">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="{% static 'images/user.svg' %}" alt="" class="rounded-circle" width="150">
+                <div class="mt-3">
+                  <h5>{{patient.name}}</h5>
+                  <p class="text-secondary mb-1">{{patient.email}}</p>
+                  {% if patient.location is not None %}
+                  <p class="text-muted font-size-sm">{{patient.location}}</p>
+                  {% endif %}
+                  <br>
+                  <button class="btn btn-info" style="background-color: hsl(83, 100%, 37%); border: 0;">Update
+                    profile</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card mb-3">
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.fullname}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Birthdate</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{patient.birthdate}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.email}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Password</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.password0}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">New Password</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.password1}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Re-Enter Password</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.password2}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.phone}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Address</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.address}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Credit Info</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{form.credit_card}}
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+
+
+  <!-- NEWS -->
+  <section id="news" data-stellar-background-ratio="2.5">
+    <div class="container" style="display: block; background-color: white; border-radius:10px;">
+      <h4 style="padding-top:12px;text-align: left;padding-bottom:10px; font-weight:bold">Appointment(s)</h4>
+      <div class="table table-hover">
+        <table class="table">
+          <tr style="text-align:center; border-bottom: 0.5px dotted rgb(219, 219, 219);">
+            <td style="font-size: 18px; font-weight: bold; border: 1px solid rgb(219, 219, 219);">Doctor</td>
+            <td style="font-size: 18px; font-weight: bold;border: 1px solid rgb(219, 219, 219);">Disease Details</td>
+            <td style="font-size: 18px; font-weight: bold;border: 1px solid rgb(219, 219, 219);">Schedule</td>
+            <td style="font-size: 18px; font-weight: bold;border: 1px solid rgb(219, 219, 219);">Appointment Status</td>
+            <td style="font-size: 18px; font-weight: bold;border: 1px solid rgb(219, 219, 219);">Prescription</td>
+            <td style="font-size: 18px; font-weight: bold;border: 1px solid rgb(219, 219, 219);">Email</td>
+            <td style="font-size: 18px; font-weight: bold;border: 1px solid rgb(219, 219, 219);">Contact</td>
+            <td style="font-size: 18px; font-weight: bold;border: 1px solid rgb(219, 219, 219);">Fees</td>
+          <tr>
+            {% for appointment in appointments %}
+          <tr style="text-align:center; border-bottom: 0.5px dotted rgb(219, 219, 219);">
+            <td class="dash-l-r">
+              {{appointment.get_doctor_name}}</td>
+            <td class="dash-l-r">
+              {{appointment.disease_details}}</td>
+            <td style="border-left: 1px dashed rgb(219, 219, 219);">{{appointment.date}}</td>
+            <!-- <td>{{appointment.get_approval_status}}</td> -->
+            {% if appointment.approval is -1 %}
+            <td style="background-color: rgb(232, 255, 131); border-radius: 10px;">Approval Pending</td>
+            {% elif appointment.approval is 1 %}
+            <td style="background-color: rgb(131, 255, 131); border-radius: 10px;">Request Accepted</td>
+            {% else %}
+            <td style="color:white;background-color: rgb(255, 95, 95); border-radius: 10px">Request Denied</td>
+            {% endif %}
+            <td style="border-right: 1px dashed rgb(219, 219, 219);">
+              {% if appointment.approval is 1 and appointment.prescription != '' %}
+              <a href="{% url 'generate_prescription' appointment.id %}">
+                <style>
+                  .btn {
+                    background: #a5c422;
+                    border-radius: 3px;
+                    color: #ffffff;
+                    font-weight: 600;
+                    padding-top: 6px;
+                    padding-bottom: 6px;
+                    margin: 2px 0px;
+                    transition: all 0.5s;
+                  }
+
+                  .btn:hover {
+                    background: #4267b2;
+                    color: #ffffff !important;
+                  }
+                </style>
+                <button class="btn">
+                  Download Prescription
+                </button>
+              </a>
+              {% else %}
+              Prescription is not updated yet.
+              {% endif %}
+            </td>
+            {% if appointment.approval is 1 %}
+            <td class="dash-l-r">
+              {{appointment.get_doctor_email}}</td>
+            <td class="dash-l-r">
+              {{appointment.get_doctor_phone}}</td>
+            <td class="dash-l-r">
+              {{appointment.get_doctor_fees}}৳</td>
+            {% else %}
+            <td class="dash-l-r">---</td>
+            <td class="dash-l-r">---</td>
+            <td class="dash-l-r">---</td>
+            {% endif %}
+          <tr>
+            {% endfor %}
+        </table>
+      </div>
+    </div>
+  </section>
+  {% include 'footer.html' %}
+  {% include 'importscripts.html' %}
+</body>
+
+</html>

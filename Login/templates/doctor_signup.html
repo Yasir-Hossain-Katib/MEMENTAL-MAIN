@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sign Up - Doctor</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/montserrat-font.css'%}">
+	<link rel="stylesheet" type="text/css"
+		href="{%static 'fonts/material-design-iconic-font/css/material-design-iconic-font.min.css'%}">
+	<!-- Main Style Css -->
+	<link rel="stylesheet" href="{%static 'css/signup.css'%}">
+	<link rel="icon" href="../../static/images/mental-icon-2.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		.page-content {
+			background-image: -webkit-linear-gradient(136deg, rgb(189, 149, 226) 0%, rgb(140, 53, 212) 100%);
+		}
+
+		.form-v10-content .form-detail .form-right {
+			background: rgb(140, 53, 212, 1);
+		}
+
+		.form-v10-content .form-detail .form-left h2 {
+			color: rgb(140, 53, 212, 1);
+		}
+	</style>
+</head>
+
+<body class="form-v10">
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="" method="POST" id="myform">
+				{% csrf_token %}
+				<div class="form-left">
+					<h2>General Infomation</h2>
+					<div class="form-row">
+						<span class="select-btn">
+							<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							{{form.fname}}
+						</div>
+						<div class="form-row form-row-2">
+							{{form.lname}}
+						</div>
+					</div>
+					<div class="form-row">
+						{{form.email}}
+					</div>
+					<div class="form-row">
+						{{form.password1}}
+					</div>
+					<div class="form-row">
+						{{form.password2}}
+					</div>
+					<div class="form-date-group">
+						<div class="form-row">
+							{{form.bdate}}
+						</div>
+					</div>
+					<div class="form-row">
+						{{form.qualifications}}
+					</div>
+					<div class="form-row">
+						{{form.specilization}}
+					</div>
+					<div class="alert alert-warning" role="alert">
+						{% for message in messages %}
+						{{message}}
+						{% endfor %}
+					</div>
+				</div>
+				<div class="form-right">
+					<h2>Additional Information</h2>
+					<div class="form-row">
+						{{form.credit_card}}
+					</div>
+					<div class="form-row">
+						{{form.street_address}}
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							{{form.zip_code}}
+						</div>
+						<div class="form-row form-row-2">
+							{{form.fees}}
+						</div>
+						
+					</div>
+					<div class="form-row">
+						{{form.district}}
+						<span class="select-btn">
+							<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							{{form.phone_type}}
+							<span class="select-btn">
+								<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+						<div class="form-row form-row-2">
+							{{form.phone}}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1" style="color: white;">
+							{{form.education}}
+						</div>
+					</div>
+					<div class="form-checkbox">
+						<label class="container">
+							<p>I do accept the <a href="#" class="text">Terms and Conditions</a> of Memental.</p>
+							<input type="checkbox" name="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="Register">
+					</div>
+					<p style="text-align:right;padding: 0% 11%; color: white; text-decoration: none;"><a
+							href="{% url 'login' %}" style="text-decoration: none; color: white;"><i
+								class="fa fa-arrow-circle-o-left"></i> Go to Login Page</a></p>
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

@@ -1,0 +1,9 @@
+Hospital/__pycache__/
+Hospital/migrations/
+Login/__pycache__/
+Login/migrations/
+Payment/__pycache__/
+Payment/migrations/
+
+*.pyc
+Memental/secrets.py

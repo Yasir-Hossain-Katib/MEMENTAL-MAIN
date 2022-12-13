@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+{%load static%}
+<html style="transform: none;" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Find easily a doctor and book online an appointment">
+	<meta name="author" content="Ansonika">
+	<title>Booking Confirmation</title>
+
+	<link rel="icon" href="../../static/images/mental-icon-2.jpg">
+	<!-- GOOGLE WEB FONT -->
+	<link href="{% static 'css/css2.css' %}" rel="stylesheet">
+
+	<!-- BASE CSS -->
+
+	<!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/menu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/vendors.css' %}" rel="stylesheet">
+	<link href="{% static 'css/all_icons_min.css' %}" rel="stylesheet">
+
+	{% include 'importcss.html' %}
+
+</head>
+
+<body>
+	{% include 'navbar.html' %}
+
+	<div id="preloader" class="Fixed">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- /Preload-->
+
+	<div id="page">
+		<main>
+			<div class="container margin_60">
+				<div class="row">
+					<form action="{% url 'success' %}" method="POST">
+						{% csrf_token %}
+						<div class="col-xl-8 col-lg-8">
+							<div class="box_general_3 cart">
+								<div class="form_title">
+									<h3><strong>1</strong>Your Details</h3>
+								</div>
+								<div class="step">
+									<div class="row">
+										<div class="col-md-6 col-sm-6">
+											<div class="form-group">
+												<label>First name</label>
+												<input type="text" class="form-control" id="firstname_booking"
+													name="firstname_booking" placeholder="{{patient.get_fname}}">
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<div class="form-group">
+												<label>Last name</label>
+												<input type="text" class="form-control" id="lastname_booking"
+													name="lastname_booking" placeholder="{{patient.get_lname}}">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-sm-6">
+											<div class="form-group">
+												<label>Email</label>
+												<input type="email" id="email_booking" name="email_booking"
+													class="form-control" placeholder="{{patient.email}}">
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<div class="form-group">
+												<label>Confirm email</label>
+												<input type="email" id="email_booking_2" name="email_booking_2"
+													class="form-control" placeholder="{{patient.email}}">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-sm-6">
+											<div class="form-group">
+												<label>Telephone</label>
+												<input type="text" id="telephone_booking" name="telephone_booking"
+													class="form-control" placeholder="{{patient.phone}}">
+											</div>
+										</div>
+									</div>
+								</div>
+								<hr>
+								<!--End step -->
+
+								<div class="form_title">
+									<h3><strong>2</strong>Payment Information</h3>
+								</div>
+								<div class="step">
+									<div class="form-group">
+										<label>Name on card</label>
+										<input type="text" class="form-control" id="name_card_booking"
+											name="name_card_booking" placeholder="{{patient.name}}" required>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Card number</label>
+												{% if patient.credit_info %}
+												<input type="text" id="card_number" name="card_number"
+													class="form-control" placeholder="{{patient.credit_info}}">
+												{% else %}
+												<input type="text" id="card_number" name="card_number"
+													class="form-control" placeholder="xxxx - xxxx - xxxx - xxxx"
+													required>
+												{% endif %}
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<img src="{% static 'images/payments.png' %}" alt="Cards" class="cards">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Expiration date</label>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<input type="text" id="expire_month" name="expire_month"
+															class="form-control" placeholder="MM" required>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<input type="text" id="expire_year" name="expire_year"
+															class="form-control" placeholder="Year" required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Security code</label>
+												<div class="row">
+													<div class="col-md-4">
+														<div class="form-group">
+															<input type="text" id="ccv" name="ccv" class="form-control"
+																placeholder="CCV">
+														</div>
+													</div>
+													<div class="col-md-8">
+														<img src="{% static 'images/icon_ccv.gif' %}" width="50"
+															height="29" alt="ccv"><small>Last 3 digits</small>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--End row -->
+
+									<h5>Or checkout with Paypal</h5>
+									<p>
+										<img src="{% static 'images/paypal_bt.png' %}" alt="Image">
+									</p>
+								</div>
+								<hr>
+
+								<!--End step -->
+								<div id="policy">
+									<h4>Cancellation policy</h4>
+									<div class="form-group">
+										<div class="checkboxes">
+											<label class="container_check" style="font-size: 15px;">I accept <a
+													href="#0">terms and conditions
+													and
+													general policy</a>
+												<input type="checkbox">
+												<span class="checkmark"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<input type="text" name="doctor_id" value="{{doctor.id}}" readonly
+								style="opacity: 0; max-width: 0px;">
+							<input type="text" name="appointment_date" value="{{prev_form.appointment_date}}" readonly
+								style="opacity: 0;">
+							<input type="text" name="appointment_time" value="{{prev_form.appointment_time}}" readonly
+								style="opacity: 0;">
+							<input type="text" name="appointment_time" value="{{prev_form.appointment_time}}" readonly
+								style="opacity: 0; max-width: 0;">
+							<input type="text" name="disease_details" value="{{prev_form.disease_details}}" readonly
+								style="opacity: 0; max-width: 0;">
+						</div>
+						<!-- /col -->
+						<aside class="col-xl-4 col-lg-4" id="sidebar">
+							<div class="box_general_3 booking">
+								<div class="title">
+									<h3>Your booking</h3>
+								</div>
+								<div class="summary">
+									<ul>
+										<li>Date: <strong class="float-right">{{prev_form.appointment_date}}</strong>
+										</li>
+										<li>Time: <strong class="float-right">{{prev_form.appointment_time}}</strong>
+										</li>
+										<li>Disease Details: <strong
+												class="float-right">{{prev_form.disease_details}}</strong>
+										</li>
+										<li>Dr. Name: <strong class="float-right">{{doctor.name}}</strong></li>
+									</ul>
+								</div>
+								<ul class="treatments checkout clearfix">
+									<li>
+										General consultation <strong class="float-right">${{doctor.get_fees}}</strong>
+									</li>
+								</ul>
+								<hr>
+								<input type="submit" name="register" class="btn_1 full-width" value="Confirm and pay">
+							</div>
+							<!-- /box_general -->
+						</aside>
+					</form>
+					<!-- /asdide -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</main>
+		<!-- /main -->
+		{% include 'footer.html' %}
+
+		<!--/footer-->
+	</div>
+	<!-- page -->
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	<script src="{% static 'js/jquery-3.js' %}"></script>
+	<script src="{% static 'js/common_scripts.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+	{% include 'importscripts.html' %}
+
+</body>
+
+</html>

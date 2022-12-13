@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+{%load static%}
+<html style="transform: none;" lang="en">
+
+<head>
+    <link rel="icon" href="../../static/images/mental-icon-2.jpg">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Find easily a doctor and book online an appointment">
+    <meta name="author" content="Ansonika">
+    <title>{{doctor.name}}'s Profile</title>
+    <link rel="icon" href="../../static/images/mental-icon-2.jpg">
+
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="{% static 'css/css2.css' %}" rel="stylesheet">
+
+    <!-- BASE CSS -->
+
+    <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet">
+    <link href="{% static 'css/vendors.css' %}" rel="stylesheet">
+    <link href="{% static 'css/all_icons_min.css' %}" rel="stylesheet">
+
+    {% include 'importcss.html' %}
+
+
+    <style id="theia-sticky-sidebar-stylesheet-TSS">
+        .theiaStickySidebar:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+    <style>
+        #td-clock-0 .td-clock {
+            color: #555;
+            background: #FFF;
+            box-shadow: 0 0 0 1px #e74e84, 0 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        #td-clock-0 .td-clock .td-time span.on {
+            color: #e74e84
+        }
+
+        #td-clock-0 .td-clock:before {
+            border-color: #e74e84
+        }
+
+        #td-clock-0 .td-select:after {
+            box-shadow: 0 0 0 1px #e74e84
+        }
+
+        #td-clock-0 .td-clock:before,
+        #td-clock-0 .td-select:after {
+            background: #FFF;
+        }
+
+        #td-clock-0 .td-lancette {
+            border: 2px solid #e74e84;
+            opacity: 0.1
+        }
+
+        #td-clock-0 .td-lancette div:after {
+            background: #e74e84;
+        }
+
+        #td-clock-0 .td-bulletpoint div:after {
+            background: #e74e84;
+            opacity: 0.1
+        }
+
+        .form-date {
+            width: 100%;
+            background-color: white;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group .form-date:nth-child(1) {
+            width: 34%;
+        }
+
+        .form-group .form-date:nth-child(2) {
+            width: 33%;
+        }
+
+        .form-group .form-date:nth-child(3) {
+            width: 33%;
+        }
+    </style>
+</head>
+
+<body style="transform: none;">
+    {% include 'navbar.html' %}
+    <div id="mm-0" class="mm-page mm-slideout">
+        <div id="page" style="transform: none;">
+            <main style="transform: none;">
+                <div class="container margin_60" style="transform: none;">
+                    <div class="row" style="transform: none;">
+                        <div class="col-xl-8 col-lg-8">
+                            <nav id="secondary_nav">
+                                <div class="container">
+                                    <ul class="clearfix">
+                                        <li><a href="#section_1" class="active">General info</a></li>
+                                        <li><a href="#sidebar">Booking</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div id="section_1">
+                                <div class="box_general_3">
+                                    <div class="profile">
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-4">
+                                                <figure style="text-align: center;">
+                                                    <img src="{{doctor.get_img}}" alt="" class="img-fluid"
+                                                        style="height: 200px; width: 200px;">
+                                                </figure>
+                                            </div>
+                                            <div class="col-lg-7 col-md-8">
+                                                <small>{{doctor.spec}}</small>
+                                                <h1>{{doctor.name}}</h1>
+                                                <ul class="contacts">
+                                                    <li>
+                                                        <h6>Address</h6>
+                                                        {{doctor.address}}
+                                                    </li>
+                                                    <li>
+                                                        <h6>Phone</h6> {{doctor.phone}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <!-- /profile -->
+                                    <div class="indent_title_in">
+                                        <i class="pe-7s-user"></i>
+                                        <h3>Professional statement</h3>
+                                    </div>
+                                    <div class="wrapper_indent">
+                                        <p>{{doctor.desc}}</p>
+                                    </div>
+                                    <!-- /wrapper indent -->
+
+                                    <hr>
+
+                                    <div class="indent_title_in">
+                                        <i class="pe-7s-news-paper"></i>
+                                        <h3>Education</h3>
+                                    </div>
+                                    <div class="wrapper_indent">
+                                        <p>{{doctor.education}}</p>
+                                        <h6>Curriculum</h6>
+                                        <p>{{doctor.qualifications}}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /col -->
+                        <aside class="col-xl-4 col-lg-4" id="sidebar"
+                            style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+
+                            <!-- /box_general -->
+                            <div class="theiaStickySidebar"
+                                style="padding-top: 0px; padding-bottom: 1px; position: relative; transform: none;">
+                                <div class="box_general_3 booking">
+                                    <form method="POST" action="{% url 'booking-page' doctor.id %}">
+                                        {% csrf_token %}
+                                        <div class="title">
+                                            <h3>Book an Appointment</h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    {{form.appointment_date}}
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    {{form.appointment_time}}
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <!-- <input type="text" style="width: 100%; height: 35px; border: 1px solid black; border-radius: 5px;" placeholder="Disease Details"> -->
+                                                    {{form.disease_details}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /row -->
+                                        <ul class="treatments clearfix">
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" class="css-checkbox" id="visit1"
+                                                        name="visit1">
+                                                    <label for="visit1" class="css-label">New Time visit
+                                                        <strong>${{doctor.new_fees}}</strong></label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" class="css-checkbox" id="visit2"
+                                                        name="visit2">
+                                                    <label for="visit2" class="css-label">General consultation
+                                                        <strong>${{doctor.get_fees}}</strong></label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <input type="submit" name="register" class="btn_1 full-width" value="Book Now">
+                                        <hr>
+                                    </form>
+                                </div>
+                                <div class="resize-sensor"
+                                    style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+                                    <div class="resize-sensor-expand"
+                                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                                        <div
+                                            style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 360px; height: 549px;">
+                                        </div>
+                                    </div>
+                                    <div class="resize-sensor-shrink"
+                                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                                        <div
+                                            style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- /asdide -->
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </main>
+            <!-- /main -->
+
+            {% include 'footer.html' %}
+
+
+        </div>
+        <div id="toTop"></div>
+    </div>
+
+    <script src="{% static 'js/jquery-3.js' %}"></script>
+    <script src="{% static 'js/common_scripts.js' %}"></script>
+    <script src="{% static 'js/functions.js' %}"></script>
+    {% include 'importscripts.html' %}
+</body>
+
+</html>
